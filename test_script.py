@@ -9,18 +9,18 @@ import serial
 
 from ublox_gps import UbloxGps
 
-port = serial.Serial('/dev/serial0', baudrate=38400, timeout=1)
-gps = UbloxGps(port)
+port = serial.Serial('/dev/serial0', baudrate=38400, timeout=1)  
+gps = UbloxGps(port)  
 
 def run():
 
     try:
         print("Listening for UBX Packets")
-        while True:
+        while True:   #I know that this while loops always controlled data which come from the GPS sensor. If you have giving mistake information. I am so sorry. I hope it will be so helpful.
             try:
                 print(gps.ublox_debug())
-
-            except (ValueError, IOError) as err:
+            
+            except (ValueError, IOError) as err:  
                 print(err)
 
     finally:
